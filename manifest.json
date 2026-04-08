@@ -1,0 +1,15 @@
+{
+  "manifest_version": 3,
+  "name": "Privacy Mode",
+  "version": "1.0",
+  "description": "Hides or blurs text content on any website to protect your privacy.",
+  "permissions": [],
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}

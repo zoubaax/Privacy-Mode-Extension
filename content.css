@@ -1,0 +1,11 @@
+/* Master switch on HTML tag */
+html.privacy-mode-enabled .privacy-blur-target {
+  filter: blur(5px);
+  transition: filter 0.2s ease-in-out;
+}
+
+/* Reveal content on hover */
+html.privacy-mode-enabled .privacy-blur-target:hover,
+html.privacy-mode-enabled .privacy-blur-target:focus-within {
+  filter: blur(0px) !important;
+}
