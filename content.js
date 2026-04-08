@@ -18,8 +18,22 @@ document.addEventListener('keydown', (e) => {
 const blockTags = new Set(['DIV', 'P', 'UL', 'OL', 'LI', 'TABLE', 'TR', 'TD', 'FORM', 'HEADER', 'FOOTER', 'ARTICLE', 'SECTION', 'ASIDE', 'MAIN', 'NAV', 'FIGURE', 'BLOCKQUOTE']);
 
 function isInsideSidebar(el) {
-  // We ONLY target elements inside Sidebars (navigation areas, asides, or containers literally named "sidebar")
-  return el.closest('nav, aside, [class*="sidebar"], [id*="sidebar"], #pane-side, [aria-label="Chats"]') !== null;
+  const selectors = [
+    'nav', 'aside',
+    '[class*="sidebar" i]', '[id*="sidebar" i]',
+    '[class*="sidenav" i]', '[id*="sidenav" i]',
+    '[class*="drawer" i]', '[id*="drawer" i]',
+    '[class*="history" i]', '[id*="history" i]',
+    '#pane-side', // WhatsApp
+    '[aria-label*="chat" i]', // Messenger & Gemini
+    '[aria-label*="drawer" i]', 
+    '[aria-label*="recent" i]',
+    '[aria-label*="history" i]',
+    '[aria-label*="conversation" i]',
+    '[role="navigation" i]'
+  ].join(', ');
+
+  return el.closest(selectors) !== null;
 }
 
 function shouldBlur(el) {
@@ -29,6 +43,11 @@ function shouldBlur(el) {
   
   // Core ignore list
   if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT' || tag === 'BODY' || tag === 'HTML' || tag === 'IMG' || tag === 'VIDEO' || tag === 'SVG' || tag === 'PATH') {
+    return false;
+  }
+
+  // Ignore popups, tooltips, and dialogs (like the 'Memory full' bar)
+  if (el.closest('[role="dialog"], [role="alert"], [role="tooltip"], [role="status"]')) {
     return false;
   }
 
