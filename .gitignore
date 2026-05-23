@@ -1,0 +1,15 @@
+# Images
+*.png
+*.jpg
+*.jpeg
+*.gif
+*.svg
+*.ico
+*.webp
+*.bmp
+*.tiff
+*.tif
+
+# Image directories
+icons/
+store-assets/
