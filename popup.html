@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Privacy Mode</title>
+    <link rel="stylesheet" href="popup.css">
+  </head>
+  <body>
+    <main class="panel">
+      <header class="header">
+        <div class="brand">
+          <img class="logo" src="icons/icon-48.png" alt="" aria-hidden="true">
+          <div>
+            <h1>Privacy Mode</h1>
+            <p id="siteStatus">Checking this site...</p>
+          </div>
+        </div>
+        <label class="switch master-switch" title="Turn privacy protection on or off">
+          <input id="enabled" type="checkbox">
+          <span></span>
+        </label>
+      </header>
+
+      <section class="status-card">
+        <div>
+          <span class="eyebrow">Protection</span>
+          <strong id="protectionState">Ready</strong>
+        </div>
+        <div class="signal" aria-hidden="true">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Blur Targets</h2>
+          <p>Choose what becomes unreadable.</p>
+        </div>
+        <label class="option">
+          <span>
+            <strong>Chat messages</strong>
+            <small>Main conversation text</small>
+          </span>
+          <input id="blurMessages" type="checkbox">
+        </label>
+        <label class="option">
+          <span>
+            <strong>Sidebar history</strong>
+            <small>Previous chat titles</small>
+          </span>
+          <input id="blurSidebar" type="checkbox">
+        </label>
+      </section>
+
+      <section class="section">
+        <div class="section-title">
+          <h2>Supported Apps</h2>
+          <p>Fixed list only, no custom sites.</p>
+        </div>
+        <div id="apps" class="apps"></div>
+      </section>
+    </main>
+
+    <script src="popup.js"></script>
+  </body>
+</html>
