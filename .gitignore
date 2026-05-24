@@ -9,7 +9,7 @@
 *.bmp
 *.tiff
 *.tif
-
+.refact
 # Image directories
 icons/
 store-assets/
